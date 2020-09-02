@@ -1,3 +1,4 @@
+
 (window.webpackJsonp = window.webpackJsonp || []).push([
     ["d0a3"], {
         "+6XX": function (e, t, n) {
@@ -14079,17 +14080,17 @@
                 dn = se("img")(sn()),
                 hn = function () {
                     return h.a.createElement(fn, null, h.a.createElement(dn, {
-                        src: "/static/images/logos/adobe.svg"
+                        src: "static/images/logos/adobe.svg"
                     }), h.a.createElement(dn, {
-                        src: "/static/images/logos/stanford.svg"
+                        src: "static/images/logos/stanford.svg"
                     }), h.a.createElement(dn, {
-                        src: "/static/images/logos/google.svg"
+                        src: "static/images/logos/google.svg"
                     }), h.a.createElement(dn, {
-                        src: "/static/images/logos/apple.svg"
+                        src: "static/images/logos/apple.svg"
                     }), h.a.createElement(dn, {
-                        src: "/static/images/logos/microsoft.svg"
+                        src: "static/images/logos/microsoft.svg"
                     }), h.a.createElement(dn, {
-                        src: "/static/images/logos/hp.svg"
+                        src: "static/images/logos/hp.svg"
                     }))
                 };
             var pn = function () {
@@ -17518,7 +17519,7 @@
                         name: "Dr. Bonnie Shaver-Troup",
                         //title: "Educational Therapist",
                         title: "",
-                        src: "/static/images/bonnie.jpeg",
+                        src: "static/images/bonnie.jpeg",
                         transition: Lu,
                         initial: {
                             y: 0,
@@ -19400,13 +19401,13 @@
                     mdxType: "Quote"
                 }, v("p", null, "I read for a living — it’s basically been exhausting. It’s a relief to be able to read without stress, without my eyes getting tired.")), v(Re, {
                     source: "Travis, 16, High School Sophomore",
-                    background: "/static/images/travis.jpg",
+                    background: "static/images/travis.jpg",
                     title: "Photo by Thought Catalog (unsplash.com/@thoughtcatalog)",
                     mdxType: "Quote"
                 }, v("p", null, "Recently, I started using LEXEND to study my Spanish vocabulary list and raised my Spanish grade from a D to a B in just a few weeks.")), v(Re, {
                     source: "Mrs. C, 1st Grade Teacher, California",
                     width: "820px",
-                    background: "/static/images/c.jpg",
+                    background: "static/images/c.jpg",
                     title: "Photo by Emmanuel Phaeton (unsplash.com/@phaeton_vision)",
                     mdxType: "Quote"
                 }, v("p", null, "With Lexend, my student was reading and ", v("em", {
@@ -22166,3 +22167,4 @@
         ["MuE9", "5d41", "9da1"]
     ]
 ]);
+
