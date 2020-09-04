@@ -1,47 +1,58 @@
-# Lexend Font Family
+# Lexend Website
 
-Lexend is a variable typeface designed by Bonnie Shaver-Troup and Thomas Jockin in 2018.
-Applying the Shaver-Troup Individually Optimal Text Formation Factors, studies have found readers instantaneously improve their reading fluency.
+<img width="1093" alt="Screen Shot 2019-06-08 at 7 26 26 PM" src="https://user-images.githubusercontent.com/25366/64728959-329a1b80-d4aa-11e9-9025-f6536102a21e.png">
 
-Lexend was expaned to Arabic in January 2020. The Shaver-Troup Formulation was applied to Arabic with advisement from Arabic Typeface Designer, Nadine Chahine.
+An awesome, function website for an awesome, functional font — Lexend is a font designed specifically to increase to reading-proficiency, and it's got some data to back it up. We designed this sucker to show it.
 
-This font is based on the Quicksand project from Andrew Paglinawan, initiated in 2008.
-Quicksand was improved in 2016 by Thomas Jockin for Google Fonts. Thomas modified Quicksand for the specialized task of improving reading fluency in low-proficiency readers (including those with dyslexia.)
+There's a lot of fun but not-too-complicated tech here:
 
+- [next.js](https://nextjs.org) for a minimal react framework
+- [react-spring](https://www.react-spring.io/) for amazing animation
+- [emotion](https://emotion.sh/docs/introduction) for simple & mostly-contained component styling
+- [mdx](https://mdxjs.com/) to keep our homepage in fairly simple markdown, with components mixed in
 
-## ChangeLog
+### 🏃‍♂️ Getting Up & Running
 
-2018 April 9 (Thomas Jockin) Version 1.0
+> Make sure you've got [Node](https://nodejs.org/en/) installed, cuz we usin' JavaScript. I prefer [yarn](https://yarnpkg.com/en/) to install dependencies, but [npm](https://www.npmjs.com/get-npm) works, too. You just need one or the other — the commands are the same, switch `yarn` with `npm` if that's what you've got.
 
-- First public release
+The website is ultimately generated & committed with special requirements to make it work with Github Pages, so the you can think of the `website` branch as the source code for the site, and the `gh-pages` branch as minified distribution code — you won't ever really need to touch the `gh-pages` branch manually.
 
-2020 January 18 (Thomas Jockin) Version 1.1
+1. Checkout the `website` branch & install dependencies so you can run locally:
 
-- Expansion to Arabic script
-- Bug fixes in Latin Character Set
+```bash
+git checkout website
+yarn install
+```
 
-## Acknowledgements
+2. Run locally:
 
-If you make modifications be sure to add your name (N), email (E), web-address (if you have one) (W) and description (D). This list is in alphabetical order.
+```bash
+yarn dev
+```
 
-N: Andrew Paglinawan  
-E: <andrew.paglinawan@gmail.com>   
-W: <http://andrewpaglinawan.com>  
-D: Designer of Quicksand (original Roman glyphs)
+2. To make changes, create a new branch based off the `website` branch, make your changes, and push. You can make a pull request on Github, which if accepted will get merged into the `website` branch.
+3. Once a pull request is merged, you'll have to pull changes from the website branch down to your local machine in order to generate & deploy to the `gh-pages` branch.
 
-N: Bonnie Shaver-Troup
-E: bshavertroup@gmail.com
-W: http://www.lexend.com
-D: Designer of Lexend (derived from Quicksand)
+```bash
+git pull --all
+git checkout website
+yarn deploy
+```
 
-N: Thomas Jockin  
-E: <thomas@thomasjockin.com>   
-W: <http://thomasjockin.com>  
-D: Designer of Lexend (derived from Quicksand)
+The deploy command simplifies the gh-pages deploy process using the lovely [gh-pages](https://github.com/tschaub/gh-pages) library, which is included in the development dependencies when you `yarn install` and uses `git` behind the scenes.
 
-N: Nadine Chahine 
-E: <nadine@arabictype.com>   
-W: <http://arabictype.com/>  
-D: Designer of Lexend Arabic (derived from Lexend Latin)
+It will do all the work for you of generating the final site code (`yarn predeploy` is run automatically behind the scenes when you run `yarn deploy`) & pushing it to the correct branch (which is what `yarn deploy` does).
 
-For more information about this font please visit <http://www.lexend.com>
+Github Pages sometimes takes a minute or two to clear the cache on Github's end after deploying, but you won't ever need to do anything beyond running `yarn deploy` locally when you have the `website` branch up-to-date to get your changes live.
+
+#### 👨🏻‍🚒 Gotchas to Watch Out For in Future Development
+
+###### Deployment
+
+One gotcha (which you might notice in `package.json` on #master and shouldn't have to worry about if you use as-is), is that we have to pass the `-t` argument, which is shortcode for _including dotfiles_ — gh-pages ignores folders that start with an `_` if you don't include a `.nojekyll` file, and we're making sure to include that shnaz in the `predeploy` command that gets automatically run when you hit `yarn deploy`.
+
+###### Static Files
+
+The `/static` folder is an important part of Next.js, and where we store all our non-dynamic files like fonts, images, etc. Because gh-pages is running in a subdirectory (`thomasjockin.github.io/lexend` instead of just `thomasjockin.github.io` or `lexend.com`), we have to change the URLs for static files to match whatever directory it's living in.
+
+You'll notice all the static files are absolute URLs, just to make it simple. If you change where this lives, you'll want to do a find & replace to update those static files. There aren't a lot.
